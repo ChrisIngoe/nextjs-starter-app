@@ -1,17 +1,10 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import withRedux from 'next-redux-wrapper';
-import createStore from '../store';
 
 // Main SCSS
 import '../assets/scss/main.scss';
 
-function MyApp({ Component, pageProps, store }) {
-  return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
-  );
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
 }
 
 MyApp.getInitialProps = async (Component, ctx) => {
@@ -33,4 +26,4 @@ MyApp.getInitialProps = async (Component, ctx) => {
 //   return { ...appProps };
 // };
 
-export default withRedux(createStore)(MyApp);
+export default MyApp;
