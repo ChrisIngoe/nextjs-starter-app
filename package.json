@@ -4,12 +4,24 @@
   "description": "Next.Js application starter",
   "main": "index.js",
   "dependencies": {
-    "antd": "^4.1.3",
-    "next": "^9.3.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@zeit/next-sass": "^1.0.1",
+    "bootstrap": "^4.4.1",
+    "cssnano": "^4.1.10",
+    "next": "9.3.2",
+    "next-redux-wrapper": "^5.0.0",
+    "node-sass": "^4.13.1",
+    "prop-types": "^15.7.2",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-redux": "^7.2.0",
+    "reactstrap": "^8.4.1",
+    "redux": "^4.0.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "redux-devtools-extension": "^2.13.8"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",

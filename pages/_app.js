@@ -1,24 +1,36 @@
 import React from 'react';
-import App from 'next/app';
-import 'antd/dist/antd.css';
+import { Provider } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
+import createStore from '../store';
 
-class AntApp extends App {
-  // Only uncomment this method if you have blocking data requirements for
-  // every single page in your application. This disables the ability to
-  // perform automatic static optimization, causing every page in your app to
-  // be server-side rendered.
-  //
-  // static async getInitialProps(appContext) {
-  //   // calls page's `getInitialProps` and fills `appProps.pageProps`
-  //   const appProps = await App.getInitialProps(appContext);
-  //
-  //   return { ...appProps }
-  // }
+// Main SCSS
+import '../assets/scss/main.scss';
 
-  render() {
-    const { Component, pageProps } = this.props;
-    return <Component {...pageProps} />;
-  }
+function MyApp({ Component, pageProps, store }) {
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  );
 }
 
-export default AntApp;
+MyApp.getInitialProps = async (Component, ctx) => {
+  let pageProps = {};
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps({ ctx });
+  }
+  return { pageProps };
+};
+
+// Only uncomment this method if you have blocking data requirements for
+// every single page in your application. This disables the ability to
+// perform automatic static optimization, causing every page in your app to
+// be server-side rendered.
+//
+// MyApp.getInitialProps = async appContext => {
+//   // calls page's `getInitialProps` and fills `appProps.pageProps`
+//   const appProps = await App.getInitialProps(appContext);
+//   return { ...appProps };
+// };
+
+export default withRedux(createStore)(MyApp);
