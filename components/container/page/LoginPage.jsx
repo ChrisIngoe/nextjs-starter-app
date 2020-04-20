@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useState, useContext } from 'react';
 import {
   Card,
   CardBody,
@@ -8,9 +8,20 @@ import {
   Input,
   Button,
 } from 'reactstrap';
+import UserContext from '../../../components/hooks/userContext';
 
 const LoginPage = memo(props => {
   const { isOpen, toggle } = props;
+  const { signIn } = useContext(UserContext);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const loginHandler = e => {
+    e.preventDefault();
+    console.log(username);
+    console.log(password);
+    signIn(username, password);
+  };
 
   return (
     <Card className="w-25 box-shadow">
@@ -27,6 +38,7 @@ const LoginPage = memo(props => {
                 className="form-control"
                 id="exampleInputEmail3"
                 aria-describedby="emailHelp"
+                onChange={e => setUsername(e.target.value)}
               />
               <small id="emailHelp" className="form-text text-muted"></small>
             </FormGroup>
@@ -36,6 +48,7 @@ const LoginPage = memo(props => {
                 type="password"
                 className="form-control"
                 id="exampleInputPassword3"
+                onChange={e => setPassword(e.target.value)}
               />
             </FormGroup>
             <FormGroup check>
@@ -49,7 +62,13 @@ const LoginPage = memo(props => {
               </Label>
             </FormGroup>
           </fieldset>
-          <Button color="primary" block size="lg" className="mt-2">
+          <Button
+            color="primary"
+            block
+            size="lg"
+            className="mt-2"
+            onClick={e => loginHandler(e)}
+          >
             Submit
           </Button>
         </Form>

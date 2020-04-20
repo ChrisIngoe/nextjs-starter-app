@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Collapse,
   Navbar,
@@ -13,6 +13,7 @@ import {
   DropdownItem,
   NavbarText,
 } from 'reactstrap';
+import UserContext from '../../components/hooks/userContext';
 
 function NavBar({
   /* state vars */
@@ -22,6 +23,7 @@ function NavBar({
   toggle,
   toggleLeft,
 }) {
+  const { user } = useContext(UserContext);
   return (
     <div>
       <Navbar color="dark" dark expand="sm" fixed="top">
@@ -84,7 +86,7 @@ function NavBar({
                   src="/images/profile2.jpg"
                   className="border rounded-circle img-42 img-fluid mr-1"
                 />
-                John Doe
+                {user}
               </NavbarText>
             </DropdownToggle>
             <DropdownMenu>
