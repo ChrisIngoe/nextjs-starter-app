@@ -1,19 +1,40 @@
+import App from 'next/app';
 import React from 'react';
+import { Provider } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
+import createStore from '../store';
 
 // Main SCSS
 import '../assets/scss/main.scss';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
-}
-
-MyApp.getInitialProps = async (Component, ctx) => {
-  let pageProps = {};
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps({ ctx });
+class MyApp extends App {
+  constructor(props) {
+    super(props);
+    this.state = { isLoading: false };
   }
-  return { pageProps };
-};
+  static async getInitialProps({ Component, ctx }) {
+    const {
+      store,
+      isServer,
+      req,
+      query: { amp },
+    } = ctx;
+    let pageProps = {};
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps({ ctx });
+    }
+
+    return { pageProps };
+  }
+  render() {
+    const { Component, pageProps, store } = this.props;
+    return (
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    );
+  }
+}
 
 // Only uncomment this method if you have blocking data requirements for
 // every single page in your application. This disables the ability to
@@ -26,4 +47,4 @@ MyApp.getInitialProps = async (Component, ctx) => {
 //   return { ...appProps };
 // };
 
-export default MyApp;
+export default withRedux(createStore)(MyApp);

@@ -9,8 +9,7 @@ export default class DocTemplate extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <meta name="Description" content="NextJS web application" />
-          <link rel="icon" href="static/img/favicon.ico" />
+          <meta charSet="utf-8" />
         </Head>
         <body>
           <Main />

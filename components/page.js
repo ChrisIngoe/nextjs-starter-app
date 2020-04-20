@@ -1,6 +1,3 @@
-import Alert from './alert';
-//import Footer from '../components/footer';
-import Meta from './meta';
 import Link from 'next/link';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
@@ -8,7 +5,7 @@ import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/
 const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
 
-export default function PageLayout({ preview, children }) {
+export default function Page({ children }) {
   return (
     <>
       <Layout>
@@ -16,13 +13,19 @@ export default function PageLayout({ preview, children }) {
           <div className="logo" />
           <Menu mode="horizontal" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
-              <Link href="/">Home</Link>
+              <Link href="/">
+                <a>Home</a>
+              </Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Link href="/store">Store</Link>
+              <Link href="/store">
+                <a>Store</a>
+              </Link>
             </Menu.Item>
             <Menu.Item key="3">
-              <Link href="/about">About</Link>
+              <Link href="/about">
+                <a>About</a>
+              </Link>
             </Menu.Item>
           </Menu>
         </Header>
