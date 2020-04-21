@@ -5,14 +5,13 @@ import withRedux from 'next-redux-wrapper';
 import createStore from '../store';
 import Router from 'next/router';
 import UserContext from '../components/hooks/userContext';
-
-// Main SCSS
+import MenuContext from '../components/hooks/menuContext';
 import '../assets/scss/main.scss';
 
 class MyApp extends App {
   constructor(props) {
     super(props);
-    this.state = { isLoading: false, user: null };
+    this.state = { isLoading: false, user: null, menuOpen: true };
   }
 
   componentDidMount = () => {
@@ -24,9 +23,15 @@ class MyApp extends App {
     } else {
       Router.push('/page/login');
     }
+    const menuOpen = localStorage.getItem('nextjs-app-starter-menu');
+    if (menuOpen === true) {
+      this.setState({
+        menuOpen,
+      });
+    }
   };
 
-  signIn = (username, password) => {
+  signIn = (username) => {
     localStorage.setItem('nextjs-app-starter-user', username);
 
     this.setState(
@@ -45,6 +50,14 @@ class MyApp extends App {
       user: null,
     });
     Router.push('/page/login');
+  };
+
+  toggleMenu = () => {
+    console.log('menuOpen: ' + !this.state.menuOpen);
+    localStorage.setItem('nextjs-app-starter-menu', !this.state.menuOpen);
+    this.setState({
+      menuOpen: !this.state.menuOpen,
+    });
   };
 
   static async getInitialProps({ Component, ctx }) {
@@ -72,9 +85,16 @@ class MyApp extends App {
           signOut: this.signOut,
         }}
       >
-        <Provider store={store}>
-          <Component {...pageProps} />
-        </Provider>
+        <MenuContext.Provider
+          value={{
+            menuOpen: this.state.menuOpen,
+            toggleMenu: this.toggleMenu,
+          }}
+        >
+          <Provider store={store}>
+            <Component {...pageProps} />
+          </Provider>
+        </MenuContext.Provider>
       </UserContext.Provider>
     );
   }

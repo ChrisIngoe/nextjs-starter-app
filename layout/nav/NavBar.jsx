@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import {
   Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
@@ -15,69 +14,20 @@ import {
 } from 'reactstrap';
 import UserContext from '../../components/hooks/userContext';
 
-function NavBar({
-  /* state vars */
-  isOpen,
-  isToggled,
-  /* toggles */
-  toggle,
-  toggleLeft,
-}) {
+function NavBar() {
   const { user } = useContext(UserContext);
   return (
     <div>
       <Navbar color="dark" dark expand="sm" fixed="top">
         <NavbarBrand href="/">
           <img src="/logo.svg" alt="Logo" className="logo" />
-          NextJS BS 4
+          NextJS Starter
         </NavbarBrand>
-        <NavbarToggler onClick={toggle} color="dark" />
-        <Collapse isOpen={isOpen} navbar>
+        <Collapse navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink
-                href="#"
-                className="d-none d-sm-block"
-                onClick={toggleLeft}
-              >
-                <i
-                  className={`fas fa-caret-square-${
-                    isToggled ? 'left' : 'right'
-                  }`}
-                ></i>
-              </NavLink>
+              <NavLink href="#" className="d-none d-sm-block"></NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="/page/typography">Typography</NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Pages
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem tag="div">
-                  <NavLink href="/card/posts" className="text-primary">
-                    Cards
-                  </NavLink>
-                </DropdownItem>
-                <DropdownItem tag="div">
-                  <NavLink href="/table/tables" className="text-primary">
-                    Tables
-                  </NavLink>
-                </DropdownItem>
-                <DropdownItem tag="div">
-                  <NavLink href="/form/buttons" className="text-primary">
-                    Buttons
-                  </NavLink>
-                </DropdownItem>
-                {/* <DropdownItem divider /> */}
-                <DropdownItem tag="div">
-                  <NavLink href="/form/forms" className="text-primary">
-                    Forms
-                  </NavLink>
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
           </Nav>
           <UncontrolledDropdown inNavbar>
             <DropdownToggle caret nav className="text-secondary">
