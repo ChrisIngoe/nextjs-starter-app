@@ -1,8 +1,5 @@
 import App from 'next/app';
 import React from 'react';
-import { Provider } from 'react-redux';
-import withRedux from 'next-redux-wrapper';
-import createStore from '../store';
 import Router from 'next/router';
 import UserContext from '../components/hooks/userContext';
 import MenuContext from '../components/hooks/menuContext';
@@ -91,9 +88,7 @@ class MyApp extends App {
             toggleMenu: this.toggleMenu,
           }}
         >
-          <Provider store={store}>
-            <Component {...pageProps} />
-          </Provider>
+          <Component {...pageProps} />
         </MenuContext.Provider>
       </UserContext.Provider>
     );
@@ -111,4 +106,4 @@ class MyApp extends App {
 //   return { ...appProps };
 // };
 
-export default withRedux(createStore)(MyApp);
+export default MyApp;

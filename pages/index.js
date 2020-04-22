@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
 import MainLayout from '../layout/MainLayout';
 import HomeContainer from '../components/container/HomeContainer';
 import HeadDefault from '../layout/head/HeadDefault';
@@ -16,7 +14,7 @@ class Index extends React.Component {
   }
 
   render() {
-    const { dispatch, storeLayout } = this.props;
+    const { storeLayout } = this.props;
 
     return (
       <>
@@ -24,12 +22,12 @@ class Index extends React.Component {
           title="Home | Next.JS with Reactstrap (React dashboard web application)"
           description="NextJS with Reactstrap components with SCSS library, a NextJS dashboard template."
         />
-        <MainLayout dispatch={dispatch} storeLayout={storeLayout}>
-          <HomeContainer dispatch={dispatch} storeLayout={storeLayout} />
+        <MainLayout storeLayout={storeLayout}>
+          <HomeContainer storeLayout={storeLayout} />
         </MainLayout>
       </>
     );
   }
 }
 
-export default connect(state => state)(Index);
+export default Index;
