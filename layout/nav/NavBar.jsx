@@ -33,7 +33,7 @@ function NavBar() {
             <DropdownToggle caret nav className="text-secondary">
               <NavbarText className="align-self-center text-left font-weight-bold">
                 <img
-                  src="/images/profile2.jpg"
+                  src="/images/profile1.jpg"
                   className="border rounded-circle img-42 img-fluid mr-1"
                 />
                 {user}

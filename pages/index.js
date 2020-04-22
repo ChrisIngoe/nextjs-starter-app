@@ -19,8 +19,8 @@ class Index extends React.Component {
     return (
       <>
         <HeadDefault
-          title="Home | Next.JS with Reactstrap (React dashboard web application)"
-          description="NextJS with Reactstrap components with SCSS library, a NextJS dashboard template."
+          title="Next.Js Starter Application"
+          description="NextJS with Reactstrap components with SCSS library, a NextJS example application."
         />
         <MainLayout storeLayout={storeLayout}>
           <HomeContainer storeLayout={storeLayout} />

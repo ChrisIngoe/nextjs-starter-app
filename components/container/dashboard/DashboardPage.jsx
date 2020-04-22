@@ -167,7 +167,7 @@ const DashboardPage = memo(props => {
                   <Media left href="#" className="col-4">
                     <Media
                       className="img-thumbnail img-fluid"
-                      src="/images/profile6.jpg"
+                      src="/images/profile1.jpg"
                       alt="Avatar"
                     />
                   </Media>

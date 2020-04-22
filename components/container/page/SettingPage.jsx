@@ -512,7 +512,7 @@ const SettingPage = memo(props => {
             <a href="#" title="Update Image">
               <img
                 className="mr-3 img-thumbnail"
-                src="/images/profile2.jpg"
+                src="/images/profile1.jpg"
                 alt="Profile Image"
               />
             </a>
