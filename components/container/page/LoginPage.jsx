@@ -1,4 +1,5 @@
 import React, { memo, useState, useContext } from 'react';
+import Router from 'next/router';
 import {
   Card,
   CardBody,
@@ -15,12 +16,30 @@ const LoginPage = memo(props => {
   const { signIn } = useContext(UserContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const loginHandler = e => {
+  const loginHandler = async e => {
     e.preventDefault();
-    console.log(username);
-    console.log(password);
-    signIn(username, password);
+    //signIn(username, password);
+    const body = {
+      username: username,
+      password: password,
+    };
+    try {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      if (res.status === 200) {
+        Router.push('/');
+      } else {
+        throw new Error(await res.text());
+      }
+    } catch (error) {
+      console.error('An unexpected error occurred:', error);
+      setErrorMsg(error.message);
+    }
   };
 
   return (

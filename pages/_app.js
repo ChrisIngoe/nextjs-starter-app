@@ -12,14 +12,14 @@ class MyApp extends App {
   }
 
   componentDidMount = () => {
-    const user = localStorage.getItem('nextjs-app-starter-user');
+    /*const user = localStorage.getItem('nextjs-app-starter-user');
     if (user) {
       this.setState({
         user,
       });
     } else {
       Router.push('/page/login');
-    }
+    }*/
     const menuOpen = localStorage.getItem('nextjs-app-starter-menu');
     if (menuOpen === true) {
       this.setState({
@@ -28,8 +28,8 @@ class MyApp extends App {
     }
   };
 
-  signIn = (username) => {
-    localStorage.setItem('nextjs-app-starter-user', username);
+  signIn = username => {
+    /*localStorage.setItem('nextjs-app-starter-user', username);
 
     this.setState(
       {
@@ -38,15 +38,15 @@ class MyApp extends App {
       () => {
         Router.push('/');
       },
-    );
+    );*/
   };
 
   signOut = () => {
-    localStorage.removeItem('nextjs-app-starter-user');
+    /*localStorage.removeItem('nextjs-app-starter-user');
     this.setState({
       user: null,
     });
-    Router.push('/page/login');
+    Router.push('/page/login');*/
   };
 
   toggleMenu = () => {
