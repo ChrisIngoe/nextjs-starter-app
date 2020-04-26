@@ -83,7 +83,7 @@ function NavBar() {
             </UncontrolledDropdown>
           ) : (
             <NavItem>
-              <NavLink href="/page/login" className="d-none d-sm-block">
+              <NavLink href="/page/login" className="text-light h5">
                 Login
               </NavLink>
             </NavItem>

@@ -1,15 +1,14 @@
 import React, { memo } from 'react';
 import Link from 'next/link';
-import { Row, Container, Button, Col, CardDeck, Card } from 'reactstrap';
-import Loader from '../../layout/Loader';
+import { Row, Container, Col, CardDeck, Card } from 'reactstrap';
 
 const HomePage = memo(props => {
   return (
     <>
       <div className="hero-start">
-        <h1 className="title">Welcome to Next.js with Reactstrap!</h1>
+        <h1 className="title">Welcome to a Next.js Starter Application!</h1>
         <p className="description">
-          To get started, edit <code>pages/index.js</code> and save to reload.
+          It uses ReactStrap for quick prototyping and demo authentication.
         </p>
         <Container>
           <div className="lead my-5">

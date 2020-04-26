@@ -1,8 +1,6 @@
 const THEME = {
-    title:'NEXTJS Reactstrap',
-    description:'React NextJS Website admin template',
+  title: 'NEXT.JS',
+  description: 'React NextJS Website admin template',
 };
 
-export {
-    THEME
-};
+export { THEME };
