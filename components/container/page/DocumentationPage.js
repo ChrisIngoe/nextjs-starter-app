@@ -1,7 +1,7 @@
-import React, { memo } from "react";
-import { Container, Row, Col } from "reactstrap";
+import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
-const DocumentationPage = memo(props => {
+const DocumentationPage = () => {
   return (
     <>
       <Container fluid>
@@ -7492,7 +7492,7 @@ const DocumentationPage = memo(props => {
                     </button>
                   </div>
                 </div>
-                
+
                 {/* {% for icon, font in fontawesome %}
                   <h5 className="my-3">{{ icon }}</h5>
                     {% for icon in font %}
@@ -7527,27 +7527,40 @@ const DocumentationPage = memo(props => {
               <Container fluid>
                 <div
                   className="d-flex align-items-center mb-2"
-                    style={{height:"200px",backgroundImage: 'url(/images/unsplash-stil-336188.jpg)'}}
+                  style={{
+                    height: '200px',
+                    backgroundImage: 'url(/images/unsplash-stil-336188.jpg)',
+                  }}
                   data-overlay="overlay-theme"
                 >
                   <h4 className="mx-auto text-light">.overlay-theme</h4>
                 </div>
                 <div
                   className="d-flex align-items-center mb-2"
-                    style={{height:"200px",backgroundImage: 'url(/images/unsplash-stil-336188.jpg)'}}
+                  style={{
+                    height: '200px',
+                    backgroundImage: 'url(/images/unsplash-stil-336188.jpg)',
+                  }}
                   data-overlay="overlay-warning"
                 >
                   <h4 className="mx-auto text-light">.overlay-warning</h4>
                 </div>
                 <div
                   className="d-flex align-items-center mb-2"
-                    style={{height:"200px",backgroundImage: 'url(/images/unsplash-stil-336188.jpg)'}}
+                  style={{
+                    height: '200px',
+                    backgroundImage: 'url(/images/unsplash-stil-336188.jpg)',
+                  }}
                   data-overlay="overlay-secondary"
                 >
                   <h4 className="mx-auto text-light">.overlay-secondary</h4>
                 </div>
                 <div
-                  className="d-flex align-items-center mb-2" style={{height:"200px",backgroundImage: 'url(/images/unsplash-stil-336188.jpg)'}}
+                  className="d-flex align-items-center mb-2"
+                  style={{
+                    height: '200px',
+                    backgroundImage: 'url(/images/unsplash-stil-336188.jpg)',
+                  }}
                   data-overlay="overlay-dark"
                 >
                   <h4 className="mx-auto text-light">.overlay-dark</h4>
@@ -7559,6 +7572,6 @@ const DocumentationPage = memo(props => {
       </Container>
     </>
   );
-});
+};
 
 export default DocumentationPage;

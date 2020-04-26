@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import {
   Container,
   Row,
@@ -6,8 +6,6 @@ import {
   CardDeck,
   Card,
   CardBody,
-  CardText,
-  Media,
   Form,
   FormGroup,
   Label,
@@ -15,7 +13,7 @@ import {
   Button,
 } from 'reactstrap';
 
-const TypographyPage = memo(props => {
+const TypographyPage = () => {
   return (
     <>
       <Container fluid>
@@ -275,6 +273,6 @@ const TypographyPage = memo(props => {
       </Container>
     </>
   );
-});
+};
 
 export default TypographyPage;

@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from '../layout/MainLayout';
-import HomeContainer from '../components/container/HomeContainer';
+import HomePage from '../components/container/HomePage';
 import HeadDefault from '../layout/head/HeadDefault';
 
 class Index extends React.Component {
@@ -23,7 +23,7 @@ class Index extends React.Component {
           description="NextJS with Reactstrap components with SCSS library, a NextJS example application."
         />
         <MainLayout storeLayout={storeLayout}>
-          <HomeContainer storeLayout={storeLayout} />
+          <HomePage storeLayout={storeLayout} />
         </MainLayout>
       </>
     );
